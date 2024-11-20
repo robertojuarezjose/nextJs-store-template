@@ -1,5 +1,4 @@
-import React from 'react';
-
+import React from 'react'
 
 
 function AboutPage() {
@@ -17,9 +16,10 @@ function AboutPage() {
             <p className='mt-6 text-lg tracking-wide leading-8 max-w-2xl mx-auto text-muted-foreground'>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero hic
                 distinctio ducimus temporibus nobis autem laboriosam repellat, magni
-                fugiat minima excepturi neque, tenetur possimus nihil atque! Culpa nulla
+                fugiat jklj minima excepturi neque, tenetur possimus nihil atque! Culpa nulla
                 labore nam?
             </p>
+
         </section>
     );
 }

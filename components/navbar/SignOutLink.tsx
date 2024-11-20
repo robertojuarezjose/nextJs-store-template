@@ -1,19 +1,12 @@
-'use client'
-import React from 'react';
-
-import {SignOutButton} from "@clerk/nextjs";
-
-
-import Link from "next/link";
-import {useToast} from '../ui/use-toast';
+'use client';
+import { SignOutButton } from '@clerk/nextjs';
+import { useToast } from '../ui/use-toast';
+import Link from 'next/link';
 
 function SignOutLink() {
-    const {toast} = useToast();
+    const { toast } = useToast();
     const handleLogout = () => {
-
         toast({ description: 'Logging Out...' });
-
-        console.log('logging out');
     };
     return (
         <SignOutButton>
