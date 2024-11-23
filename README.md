@@ -3499,7 +3499,7 @@ model Review {
 npx prisma db push
 ```
 
-- restar the server
+- restart the server
 
 ### Review Components and Actions
 
@@ -4661,7 +4661,7 @@ export default ThirdColumn;
 - actions.ts
 
 ```ts
-eexport const removeCartItemAction = async (
+export const removeCartItemAction = async (
   prevState: any,
   formData: FormData
 ) => {
