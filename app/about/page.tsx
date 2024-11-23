@@ -18,7 +18,7 @@ function AboutPage() {
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero hic
                 distinctio ducimus temporibus nobis autem laboriosam repellat, magni
                 fugiat jklj minima excepturi neque, tenetur possimus nihil atque! Culpa nulla
-                labore nam?
+                labore nam? jose juarez
             </p>
 
         </section>
