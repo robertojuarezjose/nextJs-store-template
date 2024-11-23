@@ -35,7 +35,7 @@ async function OrdersPage() {
                                 order;
 
                             return (
-                                <TableRow key={order.id}>
+                                <TableRow key={id}>
                                     <TableCell>{products}</TableCell>
                                     <TableCell>{formatCurrency(orderTotal)}</TableCell>
                                     <TableCell>{formatCurrency(tax)}</TableCell>

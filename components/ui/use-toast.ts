@@ -1,12 +1,13 @@
+"use client"
 
-'use client';
 // Inspired by react-hot-toast library
-import * as React from "react"
+
 
 import type {
   ToastActionElement,
   ToastProps,
 } from "@/components/ui/toast"
+import React from "react";
 
 const TOAST_LIMIT = 1
 const TOAST_REMOVE_DELAY = 1000000
@@ -25,6 +26,8 @@ const actionTypes = {
   REMOVE_TOAST: "REMOVE_TOAST",
 } as const
 
+const action = actionTypes;
+
 let count = 0
 
 function genId() {
@@ -35,22 +38,22 @@ function genId() {
 type ActionType = typeof actionTypes
 
 type Action =
-  | {
-      type: ActionType["ADD_TOAST"]
-      toast: ToasterToast
-    }
-  | {
-      type: ActionType["UPDATE_TOAST"]
-      toast: Partial<ToasterToast>
-    }
-  | {
-      type: ActionType["DISMISS_TOAST"]
-      toastId?: ToasterToast["id"]
-    }
-  | {
-      type: ActionType["REMOVE_TOAST"]
-      toastId?: ToasterToast["id"]
-    }
+    | {
+  type: ActionType["ADD_TOAST"]
+  toast: ToasterToast
+}
+    | {
+  type: ActionType["UPDATE_TOAST"]
+  toast: Partial<ToasterToast>
+}
+    | {
+  type: ActionType["DISMISS_TOAST"]
+  toastId?: ToasterToast["id"]
+}
+    | {
+  type: ActionType["REMOVE_TOAST"]
+  toastId?: ToasterToast["id"]
+}
 
 interface State {
   toasts: ToasterToast[]
@@ -60,7 +63,7 @@ const toastTimeouts = new Map<string, ReturnType<typeof setTimeout>>()
 
 const addToRemoveQueue = (toastId: string) => {
   if (toastTimeouts.has(toastId)) {
-    return
+    return action
   }
 
   const timeout = setTimeout(() => {
@@ -86,7 +89,7 @@ export const reducer = (state: State, action: Action): State => {
       return {
         ...state,
         toasts: state.toasts.map((t) =>
-          t.id === action.toast.id ? { ...t, ...action.toast } : t
+            t.id === action.toast.id ? { ...t, ...action.toast } : t
         ),
       }
 
@@ -106,12 +109,12 @@ export const reducer = (state: State, action: Action): State => {
       return {
         ...state,
         toasts: state.toasts.map((t) =>
-          t.id === toastId || toastId === undefined
-            ? {
-                ...t,
-                open: false,
-              }
-            : t
+            t.id === toastId || toastId === undefined
+                ? {
+                  ...t,
+                  open: false,
+                }
+                : t
         ),
       }
     }
@@ -146,10 +149,10 @@ function toast({ ...props }: Toast) {
   const id = genId()
 
   const update = (props: ToasterToast) =>
-    dispatch({
-      type: "UPDATE_TOAST",
-      toast: { ...props, id },
-    })
+      dispatch({
+        type: "UPDATE_TOAST",
+        toast: { ...props, id },
+      })
   const dismiss = () => dispatch({ type: "DISMISS_TOAST", toastId: id })
 
   dispatch({

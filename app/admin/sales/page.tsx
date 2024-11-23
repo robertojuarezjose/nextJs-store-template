@@ -40,7 +40,7 @@ async function SalesPage() {
                         } = order;
 
                         return (
-                            <TableRow key={order.id}>
+                            <TableRow key={id}>
                                 <TableCell>{email}</TableCell>
                                 <TableCell>{products}</TableCell>
                                 <TableCell>{formatCurrency(orderTotal)}</TableCell>
